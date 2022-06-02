@@ -23,8 +23,9 @@ deleteBtn();
 
 form.addEventListener(`submit`,(e)=>{
     e.preventDefault();
-
-    recoveryBtn();
+    hOne.innerHTML=``;
+    deleteBtn();
+    
     clearContent ();
      Photo.query = e.currentTarget.searchQuery.value.trim();
      if(Photo.searchText==``){
@@ -32,6 +33,7 @@ form.addEventListener(`submit`,(e)=>{
       return;
     }
      Photo.resetPage();
+     recoveryBtn();
      Photo.fetchPhoto()
 
      .then(photographs =>{
@@ -66,6 +68,7 @@ form.addEventListener(`submit`,(e)=>{
           }).join(``);
           divGallary.insertAdjacentHTML(`afterbegin`, htmlMarkup);
        })
+       
 
 } )
 
