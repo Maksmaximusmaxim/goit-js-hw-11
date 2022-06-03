@@ -25,15 +25,15 @@ form.addEventListener(`submit`,(e)=>{
     e.preventDefault();
     hOne.innerHTML=``;
     deleteBtn();
+     
     
-    clearContent ();
      Photo.query = e.currentTarget.searchQuery.value.trim();
-     if(Photo.searchText==``){
-      Notiflix.Notify.info('Видите запрос');
-      return;
+     if(Photo.searchText===``){
+     return Notiflix.Notify.info('Видите запрос');
+      
     }
      Photo.resetPage();
-     recoveryBtn();
+    clearContent ();
      Photo.fetchPhoto()
 
      .then(photographs =>{
@@ -67,6 +67,7 @@ form.addEventListener(`submit`,(e)=>{
             </div>`
           }).join(``);
           divGallary.insertAdjacentHTML(`afterbegin`, htmlMarkup);
+          recoveryBtn();
        })
        
 
